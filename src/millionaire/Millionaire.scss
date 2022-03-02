@@ -1,0 +1,31 @@
+@import "../variables.scss";
+
+.countryResult {
+	padding-bottom: 1.5rem;
+	&__container {
+		max-height: 350px;
+		overflow-y: auto;
+		width: calc(100% - 2rem);
+        background-color: $up;
+        border-radius: 0.75rem;
+        padding: 1rem;
+	}
+	&__currency {
+		margin: 0;
+		font-size: 1rem;
+		color: $textDown;
+		font-weight: 500;
+	}
+	&__amount {
+		margin: 0;
+		font-size: 1.5rem;
+		font-weight: 300;
+		color: $textUp;
+	}
+}
+
+.resultsSection {
+    strong {
+        font-size: 1.5em;
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- Doctype HTML5 -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <title>React template.</title>
+</head>
+
+<body class="no-focus-outline nice-scrolls">
+    <div id="root" tabindex="-1"></div>
+    <script type="module" src="index.tsx"></script>
+    <script>
+        document.body.addEventListener('keyup', function(e) {
+            if (e.which === 9) /* tab */ {
+                document.body.classList.remove('no-focus-outline');
+            }
+        });
+    </script>
+    <noscript>You need to enable JavaScript in your browser settings to run this web application.</noscript>
+</body>
+
+</html>
