@@ -1,11 +1,23 @@
 @import "../variables.scss";
 
-.stepper {
-	background-color: $up;
+.stepperContainer {
 	width: 100vw;
 	position: absolute;
 	left: 0;
 	top: 0;
+}
+
+.stepperBack {
+	border: none;
+	background: none;
+	font-family: inherit;
+	font-weight: 700;
+	color: $primary;
+	cursor: pointer;
+}
+
+.stepper {
+	background-color: $up;
 	border-radius: 0 4rem 4rem 0;
 
 	&__completed {
@@ -24,6 +36,9 @@
 			padding: 0.75rem;
 			border-radius: 4rem;
 			margin: 0;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 	}
 }

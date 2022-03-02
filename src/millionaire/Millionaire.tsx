@@ -36,7 +36,12 @@ const getMillionaireList = (currency: string, money: string) =>
 		.filter((amount) => amount.money >= 1_000_000)
 		.sort((a, b) => a.money - b.money);
 
-const stepNames = ["introductions and hello", "the big questions", "results and celebrations"]
+const stepNames = [
+	"introductions and hello",
+	"the big questions",
+	"results and celebrations",
+	"bank transfer",
+];
 
 export const Millionaire = () => {
 	const [currentStep, setCurrentStep] = useState(0);
@@ -54,7 +59,14 @@ export const Millionaire = () => {
 
 	return (
 		<>
-			<Stepper totalSteps={3} currentStep={currentStep} stepName={stepNames[currentStep]} />
+			<Stepper
+				totalSteps={stepNames.length}
+				currentStep={currentStep}
+				stepName={stepNames[currentStep]}
+				stepBack={() => {
+					setCurrentStep(currentStep - 1);
+				}}
+			/>
 			<h1 className="title">you wants to be a millionaire, but where?</h1>
 
 			{currentStep === 0 && (
@@ -84,10 +96,10 @@ export const Millionaire = () => {
 				<form
 					className="form"
 					onSubmit={(e) => {
-                        e.preventDefault();
-                        if (millionaireList.length > 0) {
-                            setCurrentStep(2);
-                        }
+						e.preventDefault();
+						if (millionaireList.length > 0) {
+							setCurrentStep(2);
+						}
 					}}
 				>
 					<label className="form__label">
@@ -137,8 +149,9 @@ export const Millionaire = () => {
 			{currentStep === 2 && (
 				<div className="resultsSection">
 					<p className="paragraph">
-						wow, you are a millionaire in <strong>{millionaireList.length} currencies</strong> already and
-						who knows how many countries!
+						wow, you are a millionaire in{" "}
+						<strong>{millionaireList.length} currencies</strong> already and who knows
+						how many countries!
 					</p>
 
 					<p className="paragraph">
@@ -146,7 +159,7 @@ export const Millionaire = () => {
 						<strong>{(countries as any)[millionaireList[0].code]}</strong>, pronto! or
 						any of these other lovely moneys
 					</p>
-					<div className="countryResult__container">
+					<div className="countryResult__container nice-scrolls">
 						{millionaireList.map((currency) => (
 							<div className="countryResult" key={currency.code}>
 								<p className="countryResult__currency">
@@ -158,7 +171,38 @@ export const Millionaire = () => {
 							</div>
 						))}
 					</div>
+					<button
+						className="form__submit"
+						onClick={() => {
+							setCurrentStep(3);
+						}}
+					>
+						make the conversion!
+					</button>
 				</div>
+			)}
+			{currentStep === 3 && (
+				<form
+					className="form"
+					onSubmit={(e) => {
+						e.preventDefault();
+						window.open("https://www.youtube.com/watch?v=u196yHvR8K8", "_blank");
+					}}
+				>
+					<label className="form__label">
+						account name
+						<input className="form__input" type="text" />
+					</label>
+					<label className="form__label">
+						card number
+						<input className="form__input" type="text" />
+					</label>
+					<label className="form__label">
+						3 digit security code
+						<input className="form__input" type="text" />
+					</label>
+					<button className="form__submit">make me a millionaire!</button>
+				</form>
 			)}
 		</>
 	);
