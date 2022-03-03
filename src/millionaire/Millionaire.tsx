@@ -70,7 +70,7 @@ export const Millionaire = () => {
 			<h1 className="title">you wants to be a millionaire, but where?</h1>
 
 			{currentStep === 0 && (
-				<div>
+				<div className="contentAppear">
 					<p className="paragraph">
 						we all want to be a millionaire, yes, but the question on the tip of
 						everyones' tongues is where.
@@ -94,7 +94,7 @@ export const Millionaire = () => {
 			)}
 			{currentStep === 1 && (
 				<form
-					className="form"
+					className="form contentAppear"
 					onSubmit={(e) => {
 						e.preventDefault();
 						if (millionaireList.length > 0) {
@@ -147,7 +147,7 @@ export const Millionaire = () => {
 			)}
 
 			{currentStep === 2 && (
-				<div className="resultsSection">
+				<div className="resultsSection contentAppear">
 					<p className="paragraph">
 						wow, you are a millionaire in{" "}
 						<strong>{millionaireList.length} currencies</strong> already and who knows
@@ -183,7 +183,7 @@ export const Millionaire = () => {
 			)}
 			{currentStep === 3 && (
 				<form
-					className="form"
+					className="form contentAppear"
 					onSubmit={(e) => {
 						e.preventDefault();
 						window.open("https://www.youtube.com/watch?v=u196yHvR8K8", "_blank");
